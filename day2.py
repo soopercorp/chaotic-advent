@@ -75,8 +75,6 @@ class Guide:
   def play2(self):
   	return self.part2_matrix[self.p1][self.p2]
 
-plays = []
-
 with open(filepath) as f:
     rounds = f.read().split('\n')
 
@@ -86,10 +84,8 @@ part2_points = 0
 for rnd in rounds:
 	rndsplit = rnd.split(' ')
 	g = Guide(rndsplit[0], rndsplit[1])
-	points = g.play() + default_points[default_play[rndsplit[1]]]
-	part1_points += points
+	part1_points += g.play() + default_points[default_play[rndsplit[1]]]
 	part2_points += g.play2()
-	plays.append(part1_points)
 
 print(part1_points)
 print(part2_points)
